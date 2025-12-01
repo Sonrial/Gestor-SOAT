@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Recordatorio SOAT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <span>Gestor SOAT</span>
+        </div>
+        <nav class="main-nav">
+            <a href="#inicio">Inicio</a>
+            <a href="#consulta">Consulta tu SOAT</a>
+            <a href="#admin">Panel administrador</a>
+            <a href="#faq">Preguntas frecuentes</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección Inicio -->
+        <section id="inicio" class="section hero">
+            <div class="container">
+                <h1>Controla los vencimientos de tu SOAT sin complicaciones</h1>
+                <p>
+                    Te ayudamos a recordar la fecha de vencimiento de tu SOAT y a mantener tus vehículos al día,
+                    evitando multas y contratiempos.
+                </p>
+                <a href="#consulta" class="btn btn-primary">Consulta tu SOAT ahora</a>
+            </div>
+        </section>
+
+        <!-- Sección Consulta cliente -->
+        <section id="consulta" class="section">
+            <div class="container">
+                <h2>Consulta el estado de tu SOAT</h2>
+                <p>Ingresa la placa de tu vehículo y opcionalmente tu correo electrónico.</p>
+
+                <form id="form-consulta" class="form-card">
+                    <div class="form-group">
+                        <label for="placa">Placa del vehículo</label>
+                        <input type="text" id="placa" name="placa" placeholder="ABC123" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="correo">Correo electrónico (opcional)</label>
+                        <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Consultar</button>
+                </form>
+
+                <div id="resultado-consulta" class="result-card hidden">
+                    <!-- Aquí se mostrará el resultado desde script.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Panel administrador -->
+        <section id="admin" class="section section-admin">
+            <div class="container">
+                <h2>Panel del administrador</h2>
+                <p>Acceso restringido. Ingresa la contraseña para ver el panel.</p>
+
+                <form id="form-login-admin" class="form-card">
+                    <div class="form-group">
+                        <label for="admin-password">Contraseña de administrador</label>
+                        <input type="password" id="admin-password" name="admin-password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Ingresar</button>
+                    <p class="hint">
+                        Nota: En esta versión de prueba se usa una contraseña fija definida en el código.
+                        En una versión real, este login debería estar en un backend seguro.
+                    </p>
+                </form>
+
+                <div id="panel-admin" class="admin-panel hidden">
+                    <h3>Resumen de clientes y vehículos</h3>
+
+                    <div class="filters">
+                        <div class="form-group inline">
+                            <label for="filtro-placa">Filtrar por placa</label>
+                            <input type="text" id="filtro-placa" placeholder="ABC123">
+                        </div>
+
+                        <div class="form-group inline">
+                            <label for="filtro-nombre">Filtrar por nombre</label>
+                            <input type="text" id="filtro-nombre" placeholder="Nombre del cliente">
+                        </div>
+
+                        <div class="form-group inline">
+                            <label for="filtro-estado">Estado</label>
+                            <select id="filtro-estado">
+                                <option value="">Todos</option>
+                                <option value="vigente">Vigente</option>
+                                <option value="por_vencer">Por vencer</option>
+                                <option value="vencido">Vencido</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Cliente</th>
+                                    <th>Correo</th>
+                                    <th>Placa</th>
+                                    <th>Fecha vencimiento</th>
+                                    <th>Valor renovación</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabla-admin-body">
+                                <!-- Filas generadas desde script.js -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="hint">
+                        En una versión futura, desde aquí podrás editar datos, agregar clientes y conectar
+                        la información con una base de datos real.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Preguntas frecuentes -->
+        <section id="faq" class="section">
+            <div class="container">
+                <h2>Preguntas frecuentes</h2>
+                <div class="faq-item">
+                    <h3>¿Qué es el SOAT?</h3>
+                    <p>
+                        Es el Seguro Obligatorio de Accidentes de Tránsito. Es obligatorio para circular
+                        y debe estar vigente todo el tiempo.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3>¿Qué pasa si mi SOAT está vencido?</h3>
+                    <p>
+                        Puedes recibir comparendos, inmovilización del vehículo y problemas en caso de accidente.
+                        Por eso es importante renovarlo a tiempo.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3>¿Cómo funcionan los recordatorios?</h3>
+                    <p>
+                        El sistema registra la fecha de vencimiento y, según tus datos de contacto,
+                        puede enviarte recordatorios antes de que expire. En esta versión de prueba
+                        la automatización completa aún no está activa.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section id="contacto" class="section section-contact">
+            <div class="container">
+                <h2>Contacto</h2>
+                <p>Si tienes dudas o deseas cotizar tu SOAT, escríbenos.</p>
+
+                <form id="form-contacto" class="form-card">
+                    <div class="form-group">
+                        <label for="contacto-nombre">Nombre</label>
+                        <input type="text" id="contacto-nombre" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contacto-correo">Correo</label>
+                        <input type="email" id="contacto-correo" placeholder="tucorreo@ejemplo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contacto-mensaje">Mensaje</label>
+                        <textarea id="contacto-mensaje" rows="4" placeholder="Cuéntanos en qué podemos ayudarte" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                    <p class="hint">
+                        En el MVP este formulario no envía correos reales. En una versión futura se conectará
+                        con un servicio de correo o backend.
+                    </p>
+                </form>
+
+                <div class="contact-info">
+                    <p>Teléfono: +57 000 000 0000</p>
+                    <p>Correo: contacto@gestorsoat.com</p>
+                    <p>Horario: Lunes a viernes, 8:00 a 18:00</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; <span id="anio-actual"></span> Gestor SOAT. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
