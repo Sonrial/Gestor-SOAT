@@ -59,75 +59,6 @@
             </div>
         </section>
 
-        <!-- Sección Panel administrador -->
-        <section id="admin" class="section section-admin">
-            <div class="container">
-                <h2>Panel del administrador</h2>
-                <p>Acceso restringido. Ingresa la contraseña para ver el panel.</p>
-
-                <form id="form-login-admin" class="form-card">
-                    <div class="form-group">
-                        <label for="admin-password">Contraseña de administrador</label>
-                        <input type="password" id="admin-password" name="admin-password" placeholder="••••••••" required>
-                    </div>
-                    <button type="submit" class="btn btn-secondary">Ingresar</button>
-                    <p class="hint">
-                        Nota: En esta versión de prueba se usa una contraseña fija definida en el código.
-                        En una versión real, este login debería estar en un backend seguro.
-                    </p>
-                </form>
-
-                <div id="panel-admin" class="admin-panel hidden">
-                    <h3>Resumen de clientes y vehículos</h3>
-
-                    <div class="filters">
-                        <div class="form-group inline">
-                            <label for="filtro-placa">Filtrar por placa</label>
-                            <input type="text" id="filtro-placa" placeholder="ABC123">
-                        </div>
-
-                        <div class="form-group inline">
-                            <label for="filtro-nombre">Filtrar por nombre</label>
-                            <input type="text" id="filtro-nombre" placeholder="Nombre del cliente">
-                        </div>
-
-                        <div class="form-group inline">
-                            <label for="filtro-estado">Estado</label>
-                            <select id="filtro-estado">
-                                <option value="">Todos</option>
-                                <option value="vigente">Vigente</option>
-                                <option value="por_vencer">Por vencer</option>
-                                <option value="vencido">Vencido</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="table-wrapper">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Cliente</th>
-                                    <th>Correo</th>
-                                    <th>Placa</th>
-                                    <th>Fecha vencimiento</th>
-                                    <th>Valor renovación</th>
-                                    <th>Estado</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tabla-admin-body">
-                                <!-- Filas generadas desde script.js -->
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <p class="hint">
-                        En una versión futura, desde aquí podrás editar datos, agregar clientes y conectar
-                        la información con una base de datos real.
-                    </p>
-                </div>
-            </div>
-        </section>
-
         <!-- Sección Preguntas frecuentes -->
         <section id="faq" class="section">
             <div class="container">
@@ -157,91 +88,113 @@
             </div>
         </section>
 
-        <section id="admin">
-          <h2>Panel administrador</h2>
+        <!-- Sección Panel administrador (única) -->
+        <section id="admin" class="section section-admin">
+          <div class="container">
+            <h2>Panel administrador</h2>
 
-          <form id="form-login-admin">
-            <label for="admin-password">Contraseña de administrador</label>
-            <input type="password" id="admin-password" placeholder="Escribe la contraseña" required>
-            <button type="submit">Ingresar</button>
-          </form>
-
-          <div id="panel-admin" class="hidden">
-            <h3>Registros de clientes y SOAT</h3>
-
-            <div class="filtros-admin">
-              <input type="text" id="filtro-placa" placeholder="Filtrar por placa">
-              <input type="text" id="filtro-nombre" placeholder="Filtrar por nombre">
-              <select id="filtro-estado">
-                <option value="">Todos los estados</option>
-                <option value="vigente">Vigente</option>
-                <option value="por_vencer">Por vencer</option>
-                <option value="vencido">Vencido</option>
-              </select>
-            </div>
-
-            <table class="tabla-admin">
-              <thead>
-                <tr>
-                  <th>Cliente</th>
-                  <th>Correo</th>
-                  <th>Placa</th>
-                  <th>Fecha vencimiento</th>
-                  <th>Valor renovación</th>
-                  <th>Estado</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody id="tabla-admin-body">
-                <!-- Filas generadas por JS -->
-              </tbody>
-            </table>
-
-            <h3>Nuevo / editar registro</h3>
-            <form id="form-admin-registro">
-              <!-- id oculto para saber si estamos editando -->
-              <input type="hidden" id="registro-id">
-
-              <div class="campo-form">
-                <label for="registro-nombre-cliente">Nombre del cliente</label>
-                <input type="text" id="registro-nombre-cliente" required>
+            <form id="form-login-admin" class="form-card">
+              <div class="form-group">
+                <label for="admin-password">Contraseña de administrador</label>
+                <input type="password" id="admin-password" placeholder="Escribe la contraseña" required>
               </div>
-
-              <div class="campo-form">
-                <label for="registro-correo">Correo</label>
-                <input type="email" id="registro-correo" required>
-              </div>
-
-              <div class="campo-form">
-                <label for="registro-placa">Placa</label>
-                <input type="text" id="registro-placa" required>
-              </div>
-
-              <div class="campo-form">
-                <label for="registro-fecha">Fecha de vencimiento</label>
-                <input type="date" id="registro-fecha" required>
-              </div>
-
-              <div class="campo-form">
-                <label for="registro-valor">Valor de renovación (COP)</label>
-                <input type="number" id="registro-valor" min="0" step="1000" required>
-              </div>
-
-              <div class="campo-form">
-                <label for="registro-estado">Estado</label>
-                <select id="registro-estado" required>
-                  <option value="vigente">Vigente</option>
-                  <option value="por_vencer">Por vencer</option>
-                  <option value="vencido">Vencido</option>
-                </select>
-              </div>
-
-              <button type="submit">Guardar registro</button>
-              <button type="button" id="btn-limpiar-form-admin">Limpiar formulario</button>
+              <button type="submit" class="btn btn-secondary">Ingresar</button>
+              <p class="hint">
+                Nota: En esta versión de prueba se usa una contraseña fija definida en el código.
+                En una versión real, este login debería estar en un backend seguro o en Supabase Auth.
+              </p>
             </form>
+
+            <div id="panel-admin" class="admin-panel hidden">
+              <h3>Registros de clientes y SOAT</h3>
+
+              <div class="filters">
+                <div class="form-group inline">
+                  <label for="filtro-placa">Filtrar por placa</label>
+                  <input type="text" id="filtro-placa" placeholder="Filtrar por placa">
+                </div>
+
+                <div class="form-group inline">
+                  <label for="filtro-nombre">Filtrar por nombre</label>
+                  <input type="text" id="filtro-nombre" placeholder="Filtrar por nombre">
+                </div>
+
+                <div class="form-group inline">
+                  <label for="filtro-estado">Estado</label>
+                  <select id="filtro-estado">
+                    <option value="">Todos los estados</option>
+                    <option value="vigente">Vigente</option>
+                    <option value="por_vencer">Por vencer</option>
+                    <option value="vencido">Vencido</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="table-wrapper">
+                <table class="tabla-admin">
+                  <thead>
+                    <tr>
+                      <th>Cliente</th>
+                      <th>Correo</th>
+                      <th>Placa</th>
+                      <th>Fecha vencimiento</th>
+                      <th>Valor renovación</th>
+                      <th>Estado</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tabla-admin-body">
+                    <!-- Filas generadas por JS -->
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>Nuevo / editar registro</h3>
+              <form id="form-admin-registro" class="form-card">
+                <!-- id oculto para saber si estamos editando -->
+                <input type="hidden" id="registro-id">
+
+                <div class="campo-form">
+                  <label for="registro-nombre-cliente">Nombre del cliente</label>
+                  <input type="text" id="registro-nombre-cliente" required>
+                </div>
+
+                <div class="campo-form">
+                  <label for="registro-correo">Correo</label>
+                  <input type="email" id="registro-correo" required>
+                </div>
+
+                <div class="campo-form">
+                  <label for="registro-placa">Placa</label>
+                  <input type="text" id="registro-placa" required>
+                </div>
+
+                <div class="campo-form">
+                  <label for="registro-fecha">Fecha de vencimiento</label>
+                  <input type="date" id="registro-fecha" required>
+                </div>
+
+                <div class="campo-form">
+                  <label for="registro-valor">Valor de renovación (COP)</label>
+                  <input type="number" id="registro-valor" min="0" step="1000" required>
+                </div>
+
+                <div class="campo-form">
+                  <label for="registro-estado">Estado</label>
+                  <select id="registro-estado" required>
+                    <option value="vigente">Vigente</option>
+                    <option value="por_vencer">Por vencer</option>
+                    <option value="vencido">Vencido</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="btn btn-secondary">Guardar registro</button>
+                <button type="button" id="btn-limpiar-form-admin" class="btn">Limpiar formulario</button>
+              </form>
+            </div>
           </div>
         </section>
-        
+
         <!-- Sección Contacto -->
         <section id="contacto" class="section section-contact">
             <div class="container">
@@ -283,8 +236,10 @@
         </div>
     </footer>
 
-  <!-- Supabase JS desde CDN -->
+    <!-- Supabase JS desde CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Tu lógica de la página -->
     <script src="script.js"></script>
 </body>
 </html>
