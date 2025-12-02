@@ -157,6 +157,91 @@
             </div>
         </section>
 
+        <section id="admin">
+          <h2>Panel administrador</h2>
+
+          <form id="form-login-admin">
+            <label for="admin-password">Contraseña de administrador</label>
+            <input type="password" id="admin-password" placeholder="Escribe la contraseña" required>
+            <button type="submit">Ingresar</button>
+          </form>
+
+          <div id="panel-admin" class="hidden">
+            <h3>Registros de clientes y SOAT</h3>
+
+            <div class="filtros-admin">
+              <input type="text" id="filtro-placa" placeholder="Filtrar por placa">
+              <input type="text" id="filtro-nombre" placeholder="Filtrar por nombre">
+              <select id="filtro-estado">
+                <option value="">Todos los estados</option>
+                <option value="vigente">Vigente</option>
+                <option value="por_vencer">Por vencer</option>
+                <option value="vencido">Vencido</option>
+              </select>
+            </div>
+
+            <table class="tabla-admin">
+              <thead>
+                <tr>
+                  <th>Cliente</th>
+                  <th>Correo</th>
+                  <th>Placa</th>
+                  <th>Fecha vencimiento</th>
+                  <th>Valor renovación</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="tabla-admin-body">
+                <!-- Filas generadas por JS -->
+              </tbody>
+            </table>
+
+            <h3>Nuevo / editar registro</h3>
+            <form id="form-admin-registro">
+              <!-- id oculto para saber si estamos editando -->
+              <input type="hidden" id="registro-id">
+
+              <div class="campo-form">
+                <label for="registro-nombre-cliente">Nombre del cliente</label>
+                <input type="text" id="registro-nombre-cliente" required>
+              </div>
+
+              <div class="campo-form">
+                <label for="registro-correo">Correo</label>
+                <input type="email" id="registro-correo" required>
+              </div>
+
+              <div class="campo-form">
+                <label for="registro-placa">Placa</label>
+                <input type="text" id="registro-placa" required>
+              </div>
+
+              <div class="campo-form">
+                <label for="registro-fecha">Fecha de vencimiento</label>
+                <input type="date" id="registro-fecha" required>
+              </div>
+
+              <div class="campo-form">
+                <label for="registro-valor">Valor de renovación (COP)</label>
+                <input type="number" id="registro-valor" min="0" step="1000" required>
+              </div>
+
+              <div class="campo-form">
+                <label for="registro-estado">Estado</label>
+                <select id="registro-estado" required>
+                  <option value="vigente">Vigente</option>
+                  <option value="por_vencer">Por vencer</option>
+                  <option value="vencido">Vencido</option>
+                </select>
+              </div>
+
+              <button type="submit">Guardar registro</button>
+              <button type="button" id="btn-limpiar-form-admin">Limpiar formulario</button>
+            </form>
+          </div>
+        </section>
+        
         <!-- Sección Contacto -->
         <section id="contacto" class="section section-contact">
             <div class="container">
@@ -198,6 +283,10 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+  <!-- Supabase JS desde CDN -->
+  <script src="https://scgukqjcmslzjebedutp.supabase.co"></script>
+
+  <!-- Tu lógica de la página -->
+  <script src="script.js"></script>
 </body>
 </html>
