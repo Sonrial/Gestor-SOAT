@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 function inicializarSupabaseCliente() {
   const supabaseUrl = "https://scgukqjcmslzjebedutp.supabase.co";      // Pega aquí tu URL de Supabase
-  const supabaseAnonKey = "sb_publishable_Qh2VC4YeOwQrrPSAZJt0RQ_MHEuDA0U";        // Pega aquí tu clave pública
+  const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNjZ3VrcWpjbXNsemplYmVkdXRwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ2ODYzNzQsImV4cCI6MjA4MDI2MjM3NH0.iC8b0IpygE7hp2PMNbFSc-duBL5kc6p7Pe2Ts_PERuU";        // Pega aquí tu clave pública
 
   if (!supabaseUrl || !supabaseAnonKey || supabaseAnonKey === "TU_ANON_O_PUBLISHABLE_KEY") {
     throw new Error("Debes configurar supabaseUrl y supabaseAnonKey en script.js");
